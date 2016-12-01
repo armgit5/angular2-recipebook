@@ -10,7 +10,10 @@ export class RecipeService {
       new Ingredient('French Fries', 2),
       new Ingredient('Pork Meat', 1)
     ]),
-    new Recipe('Summer Salad', 'Okayish', 'http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg', [])
+    new Recipe('Summer Salad', 'Okayish', 'http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg', [
+      new Ingredient('Leaf', 5),
+      new Ingredient('Beef', 4)
+    ])
   ];
 
   constructor() { }
@@ -27,4 +30,11 @@ export class RecipeService {
     this.recipes.splice(this.recipes.indexOf(recipe), 1);
   }
 
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+  }
+
+  editRecipe(oldRecipe: Recipe, newRecipe: Recipe) {
+    this.recipes[this.recipes.indexOf(oldRecipe)] = newRecipe;
+  }
 }
